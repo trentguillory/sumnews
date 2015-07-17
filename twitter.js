@@ -28,12 +28,35 @@ function getTweets(username) {
         indexOfPop = i;
       }
     }
+    
     // Saving top tweet info to temp variables
     tweetText = tweets[indexOfPop].text;
     tweetPop = popularity;
     
+    // Initializing for file IO
+    var date = new Date();
+    var fileName = date.getMonth() + "-" + date.getDay() + "-" + date.getFullYear() + ".txt";
+    var newmessage = username + "\n" + tweetText + "\n" + tweetPop + "\n";
+    
+    // Check if file exists for this date
+    fs.readFile(fileName, function (err, data) {
+      if (err) throw err;
+      console.log(data.toString('utf-8'));
+    });
+      // Check if top tweet from this chunk is more popular than last.
+        // If it is, save to file
+        // If it is not, return what we already have.
+    
     // Saving top tweet info to file
     
+    fs.writeFile(fileName, newmessage, function (err) {
+      if (err) throw err;
+      console.log('It\'s saved!');
+    });
+    
+    // Saving top tweet info to temp variables
+    tweetText = tweets[indexOfPop].text;
+    tweetPop = popularity;
  
   });
   return tweetText;
