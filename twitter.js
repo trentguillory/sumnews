@@ -1,4 +1,5 @@
 var Twitter = require('twitter');
+var fs = require("fs");
 
 //Initiate Twitter client
 var client = new Twitter({
@@ -10,8 +11,10 @@ var client = new Twitter({
 
 //Get latest tweets (20) and find the most popular one
 
+//initializing for passing
 var tweetText = "";
 var tweetPop = 0;
+
 function getTweets(username) {
   client.get('statuses/user_timeline', {screen_name: username}, function(error, tweets, response){
     if(error) throw error;
@@ -25,12 +28,13 @@ function getTweets(username) {
         indexOfPop = i;
       }
     }
-    // Saving top tweet to temp variable
+    // Saving top tweet info to temp variables
     tweetText = tweets[indexOfPop].text;
     tweetPop = popularity;
-    //console.log(tweets[indexOfPop].text);
-    //console.log(tweets[indexOfPop].retweet_count + tweets[indexOfPop].favorite_count);  // The favorites. 
-    //console.log(response);  // Raw response object. 
+    
+    // Saving top tweet info to file
+    
+ 
   });
   return tweetText;
 }
@@ -38,6 +42,8 @@ function getTweets(username) {
 function getTweetPop() {
   return tweetPop;
 }
+
+
 
 module.exports.getTweets = getTweets;
 module.exports.getTweetPop = getTweetPop;
