@@ -9,7 +9,8 @@ function home(request, response) {
   
   //Store the values which we need
   var values = {
-  nytimesTweet: twitter.getTweets("nytimes")
+  nytimesTweet: twitter.getTweets("nytimes"),
+  nytimePop: twitter.getTweetPop("nytimes")
   }
       
   response.writeHead(200, commonHeaders);

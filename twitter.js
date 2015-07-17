@@ -11,6 +11,7 @@ var client = new Twitter({
 //Get latest tweets (20) and find the most popular one
 
 var tweetText = "";
+var tweetPop = 0;
 function getTweets(username) {
   client.get('statuses/user_timeline', {screen_name: username}, function(error, tweets, response){
     if(error) throw error;
@@ -26,6 +27,7 @@ function getTweets(username) {
     }
     // Saving top tweet to temp variable
     tweetText = tweets[indexOfPop].text;
+    tweetPop = popularity;
     //console.log(tweets[indexOfPop].text);
     //console.log(tweets[indexOfPop].retweet_count + tweets[indexOfPop].favorite_count);  // The favorites. 
     //console.log(response);  // Raw response object. 
@@ -33,4 +35,9 @@ function getTweets(username) {
   return tweetText;
 }
 
+function getTweetPop() {
+  return tweetPop;
+}
+
 module.exports.getTweets = getTweets;
+module.exports.getTweetPop = getTweetPop;
