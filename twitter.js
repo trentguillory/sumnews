@@ -32,7 +32,7 @@ function getTweets(username) {
     // Saving top tweet info to temp variables
     tweetText = tweets[indexOfPop].text;
     tweetPop = popularity;
-    
+    /*
     // Initializing for file IO
     var date = new Date();
     var fileName = date.getMonth() + "-" + date.getDay() + "-" + date.getFullYear() + ".txt";
@@ -53,6 +53,7 @@ function getTweets(username) {
       if (err) throw err;
       console.log('It\'s saved!');
     });
+    */
     
     // Saving top tweet info to temp variables
     tweetText = tweets[indexOfPop].text;
