@@ -1,5 +1,5 @@
 {
-  "name": "nsumnews",
+  "name": "sumnews",
   "version": "0.1",
   "description": "A sample Node.js app using Twitter API",
   "main": "app.js",
