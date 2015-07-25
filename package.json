@@ -1,0 +1,24 @@
+{
+  "name": "nsumnews",
+  "version": "0.1",
+  "description": "A sample Node.js app using Twitter API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    
+  },
+  "engines": {
+    "node": "0.12.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trentguillory/sumnews.git"
+  },
+  "keywords": [
+    "node",
+    "twitter"
+  ],
+  "license": "MIT"
+}
